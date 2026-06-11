@@ -86,6 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Umsebenzi Owakho — The Job Is Yours" },
+      { name: "twitter:description", content: "South Africa's flagship AI career platform. Build ATS-friendly CVs, practice interviews, and land your dream role." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51983dc2-c43a-418b-9b63-65afd3f72d59/id-preview-7adb1afd--3cb74a77-1246-486a-89b2-411eeb5a5773.lovable.app-1781165336385.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51983dc2-c43a-418b-9b63-65afd3f72d59/id-preview-7adb1afd--3cb74a77-1246-486a-89b2-411eeb5a5773.lovable.app-1781165336385.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
