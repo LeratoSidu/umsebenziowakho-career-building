@@ -460,12 +460,12 @@ function CTASection() {
             the best AI career coach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-background text-primary font-bold rounded-xl text-lg hover:scale-[1.02] transition-transform">
+            <Link to="/auth" className="px-8 py-4 bg-background text-primary font-bold rounded-xl text-lg hover:scale-[1.02] transition-transform text-center">
               Get Started Free
-            </button>
-            <button className="px-8 py-4 bg-transparent border border-primary-foreground/20 text-primary-foreground font-bold rounded-xl text-lg hover:bg-primary-foreground/10 transition-colors">
-              Watch Demo
-            </button>
+            </Link>
+            <Link to="/auth" className="px-8 py-4 bg-transparent border border-primary-foreground/20 text-primary-foreground font-bold rounded-xl text-lg hover:bg-primary-foreground/10 transition-colors text-center">
+              Sign In
+            </Link>
           </div>
         </div>
       </div>
