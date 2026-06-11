@@ -43,7 +43,10 @@ function Dashboard() {
         .maybeSingle();
 
       if (pending && data && data.account_type === "job_seeker") {
-        await supabase.from("profiles").update({ account_type: pending }).eq("id", user.id);
+        await supabase
+          .from("profiles")
+          .update({ account_type: pending as never })
+          .eq("id", user.id);
         localStorage.removeItem("pending_account_type");
         const { data: refreshed } = await supabase
           .from("profiles")
