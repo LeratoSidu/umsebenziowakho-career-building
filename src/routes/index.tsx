@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,12 +61,12 @@ function SiteNav() {
           ))}
         </div>
         <div className="flex items-center gap-3">
-          <button className="hidden sm:inline-flex text-sm font-semibold text-foreground/80 hover:text-primary transition-colors">
+          <Link to="/auth" className="hidden sm:inline-flex text-sm font-semibold text-foreground/80 hover:text-primary transition-colors">
             Sign In
-          </button>
-          <button className="px-4 py-2 bg-primary text-primary-foreground text-sm font-bold rounded-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+          </Link>
+          <Link to="/auth" className="px-4 py-2 bg-primary text-primary-foreground text-sm font-bold rounded-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
@@ -105,12 +105,12 @@ function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
           style={{ animationDelay: "300ms" }}
         >
-          <button className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
+          <Link to="/auth" className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform text-center">
             Start My Journey
-          </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-card border border-border text-foreground font-bold rounded-xl text-lg hover:bg-muted transition-colors">
+          </Link>
+          <Link to="/auth" className="w-full sm:w-auto px-8 py-4 bg-card border border-border text-foreground font-bold rounded-xl text-lg hover:bg-muted transition-colors text-center">
             Try CV Analyzer
-          </button>
+          </Link>
         </div>
 
         <DashboardPreview />
@@ -460,12 +460,12 @@ function CTASection() {
             the best AI career coach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-background text-primary font-bold rounded-xl text-lg hover:scale-[1.02] transition-transform">
+            <Link to="/auth" className="px-8 py-4 bg-background text-primary font-bold rounded-xl text-lg hover:scale-[1.02] transition-transform text-center">
               Get Started Free
-            </button>
-            <button className="px-8 py-4 bg-transparent border border-primary-foreground/20 text-primary-foreground font-bold rounded-xl text-lg hover:bg-primary-foreground/10 transition-colors">
-              Watch Demo
-            </button>
+            </Link>
+            <Link to="/auth" className="px-8 py-4 bg-transparent border border-primary-foreground/20 text-primary-foreground font-bold rounded-xl text-lg hover:bg-primary-foreground/10 transition-colors text-center">
+              Sign In
+            </Link>
           </div>
         </div>
       </div>
