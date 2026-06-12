@@ -1,467 +1,213 @@
-# 🚀 Umsebenzi Owakho – The Job Is Yours
+# Umsebenzi Owakho — The Job Is Yours
 
-> **Application to Appointment – uMsebenzi Owakho, The Job Is Yours With The Best AI Coach**
+> South Africa's flagship AI-powered career success platform.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![React](https://img.shields.io/badge/React-18+-61DAFB.svg)
-![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6.svg)
-![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E.svg)
-![OpenAI](https://img.shields.io/badge/OpenAI-AI-412991.svg)
-![Status](https://img.shields.io/badge/Status-In%20Development-success.svg)
+**Tagline:** "Application to Appointment, uMsebenzi Owakho, The Job Is Yours With The Best AI Coach"
 
 ---
 
-# 🇿🇦 About
+## What it is
 
-**Umsebenzi Owakho – The Job Is Yours** is an AI-powered career success platform built specifically for the South African employment ecosystem.
+Umsebenzi Owakho is a full-stack web application built for the South African employment market. It is an intelligent career assistant that guides users through every stage of their career journey — from building an ATS-friendly CV and analysing job descriptions, to interview coaching and application tracking.
 
-Rather than being just another CV builder or job board, the platform functions as an intelligent AI Career Coach that guides job seekers from **Application → Interview → Appointment → Career Growth**.
-
-Our mission is to make every South African job seeker more employable by combining Artificial Intelligence, recruiter expertise, career coaching, skills development, networking, productivity tools and secure digital career management into one unified platform.
+The platform supports multiple account types, each tailored to a different role in the employment ecosystem.
 
 ---
 
-# 🎯 Vision
+## What's live now
 
-To become **South Africa's most trusted AI-powered career platform**, helping students, graduates, professionals, executives and career changers confidently navigate every stage of their employment journey.
+| Feature | Status |
+|--------|--------|
+| Landing page with premium "Morning light" design | ✅ |
+| Authentication (email + password + Google OAuth) | ✅ |
+| Account type selection (7 types) | ✅ |
+| Protected dashboard route | ✅ |
+| Profile creation via database trigger | ✅ |
+| Responsive layout & accessible UI (shadcn) | ✅ |
 
-The platform is designed to:
+### Account types
 
-* Build ATS-optimised CVs
-* Tailor CVs for every application
-* Analyse job descriptions
-* Improve interview performance
-* Increase recruiter visibility
-* Upskill through personalised learning
-* Build professional networks
-* Connect employers with top talent
-* Provide AI-powered career guidance
-* Improve employment outcomes across South Africa
+Users sign up as one of seven account types:
 
----
-
-# ✨ Core Features
-
-## 🤖 AI Career Assistant
-
-* AI Career Coach
-* AI Career Intelligence
-* AI Career Health Score
-* AI Career Readiness Score
-* Career Roadmaps
-* Career SWOT Analysis
-* Career Goal Planning
+1. **Job Seeker** — the primary audience; gets AI CV coaching, job matching and interview prep.
+2. **Recruiter** — sources candidates and manages pipelines.
+3. **Employer** — posts vacancies and tracks applicants.
+4. **Training Provider** — offers skills courses and learnerships.
+5. **University** — connects graduates with employers.
+6. **Career Coach** — provides 1-on-1 coaching sessions.
+7. **Government Organisation** — posts public-sector roles and SETA opportunities.
 
 ---
 
-## 📄 AI CV Builder
+## Technology stack
 
-* ATS-friendly templates
-* Recruiter-approved layouts
-* AI writing assistant
-* Achievement optimisation
-* Grammar improvements
-* Skills optimisation
-* Keyword optimisation
-* Multiple CV versions
-* PDF, Word & Text export
-
----
-
-## 🎯 AI CV Tailoring
-
-Automatically compares a CV against any job description and generates:
-
-* ATS Score
-* Recruiter Match Score
-* Missing Skills
-* Suggested Keywords
-* Optimised Professional Summary
-* Achievement Rewrites
-* One-click Application Version
+| Layer | Technology |
+|-------|------------|
+| Framework | TanStack Start v1 (full-stack React) |
+| React | v19 |
+| Build tool | Vite 7 |
+| Styling | Tailwind CSS v4 |
+| UI components | shadcn/ui + Radix UI |
+| Backend | Lovable Cloud (Supabase) |
+| Database | PostgreSQL |
+| Auth | Lovable Cloud Auth (Supabase Auth) |
+| Fonts | Plus Jakarta Sans, Inter, JetBrains Mono |
+| Icons | Lucide React |
 
 ---
 
-## 📋 Job Description Analyzer
+## Project structure
 
-Analyse:
-
-* Skills
-* Qualifications
-* Responsibilities
-* Company Culture
-* Recruiter Priorities
-* Hidden Expectations
-
-Generate:
-
-* Match Percentage
-* Skills Gap Analysis
-* Interview Questions
-* CV Recommendations
-* Cover Letter Suggestions
-
----
-
-## 💼 Job Application Tracker
-
-Track every application using a Kanban workflow:
-
-* Applied
-* Screening
-* Assessment
-* Interview
-* Offer
-* Accepted
-* Rejected
-
-Includes:
-
-* Calendar Integration
-* Interview Reminders
-* Deadline Notifications
-* Notes
-* Documents
+```
+src/
+  components/ui/          # shadcn/ui components (Button, Card, Dialog, etc.)
+  hooks/                  # React hooks (e.g. use-mobile)
+  integrations/
+    lovable/              # Lovable Cloud auth helpers
+    supabase/
+      client.ts           # Browser Supabase client (RLS aware)
+      client.server.ts    # Server-side admin client (service role)
+      auth-middleware.ts  # requireSupabaseAuth middleware
+      auth-attacher.ts    # Attaches bearer token to serverFn RPCs
+      types.ts            # Generated Supabase types
+  lib/                    # Utilities (cn, error handling, etc.)
+  routes/
+    __root.tsx            # Root layout (Google Fonts, Toaster, Outlet)
+    index.tsx             # Landing page (/)
+    auth.tsx              # Sign-up / sign-in page (/auth)
+    _authenticated/
+      route.tsx           # Layout guard — redirects unauthenticated users
+      dashboard.tsx       # Personal dashboard (/dashboard)
+  styles.css              # Tailwind v4 entry + custom theme tokens
+  start.ts                # TanStack Start instance + middleware registration
+  router.tsx              # Router configuration
+```
 
 ---
 
-## 🎤 AI Interview Coach
+## Running locally
 
-Practice using AI:
+### Prerequisites
 
-* HR Interviews
-* Behavioural Interviews
-* Technical Interviews
-* STAR Method
-* Mock Interviews
-* Voice Analysis
-* Confidence Analysis
-* Body Language Guidance
-* Salary Negotiation Coaching
+- [Bun](https://bun.sh/) (or Node 20+)
+- A Lovable Cloud project (Supabase) connected
 
----
+### Install dependencies
 
-## ✉️ Smart Email Generator
+```bash
+bun install
+```
 
-Generate:
+### Environment variables
 
-* Job Applications
-* Follow-ups
-* Thank-you Emails
-* Salary Negotiation Emails
-* Networking Emails
-* Promotion Requests
-* Resignation Letters
-* LinkedIn Messages
+The following variables are injected automatically by Lovable Cloud in production/preview. For local development you need:
 
----
+```bash
+VITE_SUPABASE_URL=https://<project>.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=<anon-key>
+```
 
-## 🌐 AI Networking Assistant
+*(Server-side `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` are read from the same values.)*
 
-Build a stronger professional network with AI-powered assistance:
+### Start the dev server
 
-* LinkedIn Optimisation
-* Connection Requests
-* Recruiter Outreach
-* Networking Strategy
-* Industry Communities
-* Professional Associations
-* Mentor Matching
+```bash
+bun dev
+```
+
+The app will be available at `http://localhost:3000`.
+
+### Build for production
+
+```bash
+bun run build
+```
 
 ---
 
-## 🎓 AI Learning Hub
+## Authentication flow
 
-Receive personalised recommendations for:
-
-* Short Courses
-* Certifications
-* Learnerships
-* Graduate Programmes
-* Bootcamps
-* SETA Opportunities
-* Government Programmes
-* University Courses
-
----
-
-## 💰 AI Salary Intelligence
-
-Estimate salaries based on:
-
-* Province
-* Industry
-* Experience
-* Qualifications
-* Skills
-
-Includes:
-
-* Salary Benchmarking
-* Offer Comparison
-* Cost of Living
-* Take-home Pay Estimation
+1. User visits `/` (landing page) and clicks **Get Started** or **Sign In**.
+2. They are taken to `/auth`.
+3. On `/auth` they:
+   - Pick an account type from the 7 cards.
+   - Enter email + password to **sign up**, or
+   - Click **Continue with Google** for OAuth.
+4. On successful sign-up a database trigger (`handle_new_user()`) auto-creates a row in `public.profiles`.
+5. For OAuth, the selected account type is stored in `localStorage` as `pending_account_type` and applied to the profile on first dashboard load.
+6. Authenticated users are redirected to `/dashboard`.
+7. Unauthenticated users hitting `/dashboard` are redirected back to `/auth`.
 
 ---
 
-## 👥 Recruiter & Employer Platform
+## Database schema
 
-Recruiters can:
+### `public.profiles`
 
-* Search Talent
-* Rank Candidates
-* AI Candidate Matching
-* Interview Scheduling
-* Recruitment Analytics
+| Column | Type | Notes |
+|--------|------|-------|
+| `id` | `uuid` | Primary key, references `auth.users(id)` |
+| `full_name` | `text` | Nullable |
+| `account_type` | `account_type` enum | One of 7 roles |
+| `created_at` | `timestamptz` | Auto-set |
+| `updated_at` | `timestamptz` | Auto-updated by trigger |
 
-Employers receive:
+### `public.account_type` enum
 
-* Employer Dashboard
-* Talent Pipeline
-* Vacancy Management
-* Hiring Analytics
-* AI Shortlisting
+```
+job_seeker | recruiter | employer | training_provider | university | career_coach | government_organisation
+```
 
----
+### RLS
 
-# 🔐 Security & Compliance
-
-Designed with enterprise-grade security.
-
-* POPIA Compliant
-* GDPR-ready Architecture
-* End-to-End Encryption
-* Secure Authentication
-* Multi-Factor Authentication
-* Role-Based Access Control
-* Audit Logs
-* Secure Document Storage
-* Privacy Dashboard
+- `profiles` has Row Level Security enabled.
+- Users can read/update only their own profile row.
+- The `handle_new_user()` trigger runs with `SECURITY DEFINER` to insert the initial profile on signup.
 
 ---
 
-# 🎨 Design Philosophy
+## Roadmap
 
-The platform follows a premium AI SaaS design language inspired by world-class products while maintaining its own identity.
+### In progress / next up
 
-Inspired by:
+- AI CV Builder (ATS-friendly templates + AI writing assistant)
+- Job Description Analyzer (match score, skills gap, interview questions)
+- AI Interview Coach (mock interviews, STAR method, feedback)
+- Application Tracker (Kanban board with stages)
+- Recruiter / Employer dashboards
+- AI Learning Hub (course & learnership recommendations)
 
-* OpenAI
-* Notion AI
-* Stripe
-* Linear
-* Vercel
-* Apple
-* Microsoft Copilot
-* Anthropic
-* Google Gemini
+### Planned
 
-### Design Principles
-
-* Human-centred
-* Premium
-* Modern
-* Accessible
-* Responsive
-* Glassmorphism
-* Smooth Animations
-* Clean Typography
-* Inclusive South African Imagery
+- Mobile apps (PWA → native)
+- AI Career Agent (conversational coach)
+- Salary Intelligence (province & industry benchmarking)
+- Smart Email Generator
+- AI Networking Assistant (LinkedIn optimisation)
 
 ---
 
-# 🎨 Colour Psychology
+## Design tokens
 
-| Colour          | Purpose                 |
-| --------------- | ----------------------- |
-| Deep Royal Blue | Trust & Professionalism |
-| Emerald Green   | Growth & Success        |
-| Sky Blue        | Optimism                |
-| Gold            | Achievement             |
-| Soft White      | Simplicity              |
+The UI uses a custom "Morning light premium" theme:
 
-The interface is intentionally designed to inspire confidence, reduce anxiety and encourage users throughout their job-search journey.
+| Token | Value | Purpose |
+|-------|-------|---------|
+| Primary | `#1e3a8a` (Deep Royal Blue) | Trust, professionalism |
+| Accent | `#16a34a` (Emerald Green) | Growth, success |
+| Sky | `#38bdf8` | Optimism, highlights |
+| Background | `#f8fafc` | Clean canvas |
+| Foreground | `#0f172a` | Primary text |
 
----
-
-# 🧭 User Journey
-
-Landing Page
-
-↓
-
-Choose Account Type
-
-↓
-
-Create Account
-
-↓
-
-Email Verification
-
-↓
-
-AI Career Assessment
-
-↓
-
-Upload CV
-
-↓
-
-AI Analysis
-
-↓
-
-Career Dashboard
-
-↓
-
-Job Matching
-
-↓
-
-CV Tailoring
-
-↓
-
-Interview Preparation
-
-↓
-
-Applications
-
-↓
-
-Employment Success
-
-↓
-
-Career Growth
+Typography: **Plus Jakarta Sans** (display), **Inter** (body), **JetBrains Mono** (code/mono).
 
 ---
 
-# 🏗 Technology Stack
+## License
 
-| Layer          | Technology                   |
-| -------------- | ---------------------------- |
-| Frontend       | React + Next.js + TypeScript |
-| Backend        | Supabase                     |
-| Authentication | Supabase Auth                |
-| Database       | PostgreSQL                   |
-| Storage        | Supabase Storage             |
-| AI             | OpenAI                       |
-| Hosting        | Vercel                       |
-| Payments       | Stripe                       |
-| Email          | Resend                       |
-| Analytics      | PostHog                      |
-| Monitoring     | Sentry                       |
-| Search         | Algolia                      |
+MIT
 
 ---
-
-# 📱 Platforms
-
-* Web
-* Progressive Web App (PWA)
-* Android (planned)
-* iOS (planned)
-
----
-
-# 🌍 Accessibility
-
-Designed to meet WCAG 2.2 AA standards.
-
-Supports:
-
-* Keyboard Navigation
-* Screen Readers
-* Dark Mode
-* High Contrast
-* Responsive Design
-* Multiple South African Languages (planned)
-
----
-
-# 🇿🇦 South African Focus
-
-Built specifically for the South African employment market.
-
-Supports:
-
-* POPIA Compliance
-* Recruitment Agencies
-* Government Jobs
-* Z83 Applications
-* SETA Opportunities
-* Learnerships
-* Graduate Programmes
-* Local Job Boards
-* South African Labour Guidance
-
----
-
-# 📊 Current Development Status
-
-### ✅ Completed
-
-* Landing Page
-* Authentication Flow
-* Multi-account Registration
-* Google Sign-In
-* Dashboard Foundation
-* Account Type Selection
-* Protected Routes
-
-### 🚧 In Progress
-
-* AI CV Builder
-* Job Description Analyzer
-* AI Career Dashboard
-* AI Interview Coach
-* Recruiter Marketplace
-* Employer Dashboard
-* Learning Hub
-
-### 📌 Planned
-
-* Mobile Applications
-* AI Career Agent
-* AI Application Automation
-* AI Mentor Marketplace
-* Executive Career Coach
-* Scholarship Finder
-* Internship Finder
-
----
-
-# 🤝 Contributing
-
-Contributions, feature requests and suggestions are welcome.
-
-Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Submit a Pull Request
-
----
-
-# 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-# ❤️ Mission
-
-**Our mission is simple:**
-
-Empower every South African job seeker with intelligent AI tools that improve employability, build confidence and connect talent with opportunity.
 
 > **Application to Appointment.**
 >
